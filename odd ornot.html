@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kiểm Tra Số Chẵn Lẻ</title>
+  </head>
+  <body>
+    <h1>Kiểm Tra Số Chẵn Lẻ</h1>
+
+    <label for="number">Nhập số: </label>
+    <input type="number" id="number" />
+
+    <button onclick="checkEvenOdd()">Kiểm tra</button>
+
+    <p id="result"></p>
+
+    <script>
+      function checkEvenOdd() {
+        var numberInput = document.getElementById("number");
+        var number = parseInt(numberInput.value);
+
+        var resultElement = document.getElementById("result");
+        if (!isNaN(number)) {
+          if (number % 2 === 0) {
+            resultElement.textContent = "Số " + number + " là số chẵn.";
+          } else {
+            resultElement.textContent = "Số " + number + " là số lẻ.";
+          }
+        } else {
+          resultElement.textContent = "Vui lòng nhập một số.";
+        }
+      }
+    </script>
+  </body>
+</html>

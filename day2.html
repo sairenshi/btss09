@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chào Buổi</title>
+  </head>
+  <body>
+    <h1>Chào Buổi</h1>
+
+    <label for="hours">Nhập số giờ trong ngày (0-23): </label>
+    <input type="number" id="hours" />
+
+    <button onclick="greetTime()">Chào Buổi</button>
+
+    <p id="greeting"></p>
+
+    <script>
+      function greetTime() {
+        // Lấy giá trị số giờ từ người dùng
+        var hoursInput = document.getElementById("hours");
+        var hours = parseInt(hoursInput.value);
+
+        // Kiểm tra và hiển thị kết quả
+        var greetingElement = document.getElementById("greeting");
+        if (!isNaN(hours) && hours >= 0 && hours <= 24) {
+          if (hours < 10) {
+            greetingElement.textContent = "Good morning";
+          } else if (hours < 20) {
+            greetingElement.textContent = "Good day";
+          } else {
+            greetingElement.textContent = "Good evening";
+          }
+        } else {
+          greetingElement.textContent = "Vui lòng nhập số giờ hợp lệ (0-23)";
+        }
+      }
+    </script>
+  </body>
+</html>

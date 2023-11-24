@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chỉ Số BMI</title>
+  </head>
+  <body>
+    <h1>Chỉ Số BMI</h1>
+
+    <label for="weight">Nhập cân nặng (kg): </label>
+    <input type="number" id="weight" />
+
+    <label for="height">Nhập chiều cao (m): </label>
+    <input type="number" id="height" />
+
+    <button onclick="calculateBMI()">Tính BMI</button>
+
+    <p id="result"></p>
+
+    <script>
+      function calculateBMI() {
+        // Lấy giá trị cân nặng và chiều cao từ người dùng
+        var weightInput = document.getElementById("weight");
+        var heightInput = document.getElementById("height");
+
+        var weight = parseFloat(weightInput.value);
+        var height = parseFloat(heightInput.value);
+
+        if (isNaN(weight) || isNaN(height) || weight <= 0 || height <= 0) {
+          alert("Vui lòng nhập cân nặng và chiều cao hợp lệ.");
+          return;
+        }
+
+        var bmi = weight / Math.pow(height, 2);
+        var resultElement = document.getElementById("result");
+        if (bmi < 18.5) {
+          resultElement.textContent = "BMI: " + bmi.toFixed(2) + " - Gầy";
+        } else if (bmi < 24.9) {
+          resultElement.textContent =
+            "BMI: " + bmi.toFixed(2) + " - Bình thường";
+        } else if (bmi < 29.9) {
+          resultElement.textContent = "BMI: " + bmi.toFixed(2) + " - Hơi béo";
+        } else {
+          resultElement.textContent = "BMI: " + bmi.toFixed(2) + " - Béo phì";
+        }
+      }
+    </script>
+  </body>
+</html>

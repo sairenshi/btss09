@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Kiểm Tra Tuổi</h1>
+
+    <label for="age">Nhập tuổi của bạn: </label>
+    <input type="number" id="age" />
+
+    <button onclick="checkAge()">Kiểm tra tuổi</button>
+
+    <p id="result"></p>
+    <!-- <script src="./age.js"></script> -->
+    <script>
+      function checkAge() {
+        // Lấy giá trị tuổi từ người dùng
+        var ageInput = document.getElementById("age");
+        var age = parseInt(ageInput.value);
+
+        // Kiểm tra và hiển thị kết quả
+        var resultElement = document.getElementById("result");
+        if (!isNaN(age) && age >= 18) {
+          resultElement.textContent = "Bạn đã đủ 18 tuổi!";
+        } else {
+          resultElement.textContent = "Bạn chưa đủ 18 tuổi!";
+        }
+      }
+    </script>
+  </body>
+</html>
